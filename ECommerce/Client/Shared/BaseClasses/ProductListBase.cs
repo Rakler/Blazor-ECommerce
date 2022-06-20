@@ -10,7 +10,7 @@ namespace ECommerce.Client.Shared.BaseClasses
         protected static List<Product> products = new List<Product>();
 
         [Inject]
-        protected HttpClient? Http { get; set; }
+        protected HttpClient Http { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
