@@ -9,17 +9,14 @@ namespace ECommerce.Client.Shared.BaseClasses
     {
         protected static List<Product> products = new List<Product>();
 
+
+
         [Inject]
-        protected HttpClient Http { get; set; }
+        protected IProductService ProductService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            var result = await Http.GetFromJsonAsync<List<Product>>("/api/product");
-
-            if(result != null)
-            {
-                products = result;
-            }
+            await ProductService.GetProducts();
         }
     }
 }
