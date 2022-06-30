@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using ECommerce.Shared;
+﻿using ECommerce.Shared;
 using System.Net.Http.Json;
 
 

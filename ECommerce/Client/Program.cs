@@ -1,6 +1,7 @@
 global using ECommerce.Shared;
 global using System.Net.Http.Json;
 global using ECommerce.Client.Services.ProductService;
+global using  Microsoft.AspNetCore.Components;
 using ECommerce.Client;
 
 using Microsoft.AspNetCore.Components.Web;
