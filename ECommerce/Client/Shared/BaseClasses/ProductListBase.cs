@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 
 namespace ECommerce.Client.Shared.BaseClasses
 {
-    public class ProductListBase : ComponentBase
+    public class ProductListBase : ComponentBase, IDisposable
     {
         protected static List<Product> products = new List<Product>();
 
@@ -13,9 +13,14 @@ namespace ECommerce.Client.Shared.BaseClasses
         [Inject]
         protected IProductService ProductService { get; set; }
 
-        protected override async Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
-            await ProductService.GetProducts();
+            ProductService.ProductsChanged += StateHasChanged;
+        }
+
+        public void Dispose()
+        {
+            ProductService.ProductsChanged -= StateHasChanged;
         }
     }
 }
